@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  business_justification: MyText
+  implmentation_plan: MyText
+  risks: MyText
+  test_plan: MyText
+  rollback_plan: MyText
+
+two:
+  name: MyString
+  description: MyText
+  business_justification: MyText
+  implmentation_plan: MyText
+  risks: MyText
+  test_plan: MyText
+  rollback_plan: MyText
