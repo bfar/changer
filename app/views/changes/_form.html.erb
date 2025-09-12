@@ -1,0 +1,61 @@
+<%= form_with model: change do |f| %>
+  <% if change.errors.any? %>
+    <div class="errors">
+      <h2><%= pluralize(change.errors.count, "error") %>
+        prohibited this change from being saved</h2>
+      <ul>
+        <% change.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :business_justification %>
+    <%= f.text_field :business_justification %>
+  </div>
+  <div class="field">
+    <%= f.label :implementation_plan %>
+    <%= f.text_field :implementation_plan %>
+  </div>
+  <div class="field">
+    <%= f.label :risks %>
+    <%= f.text_field :risks %>
+  </div>
+  <div class="field">
+    <%= f.label :test_plan %>
+    <%= f.text_field :test_plan %>
+  </div>
+  <div class="field">
+    <%= f.label :rollback_plan %>
+    <%= f.text_field :rollback_plan %>
+  </div>
+  <div class="field">
+    <%= f.label :risk_id %>
+    <%= f.collection_select :risk_id,
+                        Risk.all,
+                        :id,
+                        :level,
+                        prompt: "Select a risk level" %>
+  </div>
+  <div class="field">
+    <%= f.label :change_type_id %>
+    <%= f.collection_select :change_type_id,
+                        ChangeType.all,
+                        :id,
+                        :change_type,
+                        prompt: "Select a change type" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

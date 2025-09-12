@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  # resources :changes
-  get "/changes", to: "changes#index"
-  get "/changes/new", to: "changes#new", as: "new_change"
-  get "/changes/:id", to: "changes#show", as: "change"
-  post "/changes", to: "changes#create"
+   resources :changes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
