@@ -1,24 +1,30 @@
-<h1><%= @change_record.name %></h1>
+<div class="pl-4 p-4"
+<h1><%=@change_record.name %></h1>
 
-<ul>
-  <li>Name:
+<ul class="list p-4">
+  <li class="list-item">Name:
     <%= @change_record.name %></li>
-  <li>Description:
+  <li class="list-item">Description:
     <%= @change_record.description %></li>
-  <li>Business Justification:
+  <li class="list-item">Business Justification:
     <%= @change_record.business_justification %></li>
-  <li>Implementation Plan:
+  <li class="list-item">Implementation Plan:
     <%= @change_record.implementation_plan %></li>
-  <li>Risks:
+  <li class="list-item">Risks:
     <%= @change_record.risks %></li>
-  <li>Test Plan:
+  <li class="list-item">Test Plan:
     <%= @change_record.test_plan %></li>
-  <li>Rollback Plan:
+  <li class="list-item">Rollback Plan:
     <%= @change_record.rollback_plan %></li>
-  <li>Risk Level:
+  <li class="list-item">Risk Level:
     <%= @change_record.risk.level %></li>
-  <li>Change Type:
+  <li class="list-item">Change Type:
     <%= @change_record.change_type.change_type %></li>
 </ul>
 
-<%= button_to "Delete Change", change_records_path(@change), method: :delete %>
+<%= button_to "Delete Change",
+change_records_path(@change),
+method: :delete,
+class: "btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" %>
+
+</div>
