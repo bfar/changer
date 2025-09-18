@@ -1,3 +1,8 @@
 <h1>Edit Change</h1>
 
 <%= render "form", change_record: @change_record %>
+
+<%= button_to "Discard Changes",
+change_record_path(@change_record),
+method: :get,
+class: "btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" %>

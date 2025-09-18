@@ -1,5 +1,5 @@
 <%= form_with model: change_record do |f| %>
-  <% if change.errors.any? %>
+  <% if change_record.errors.any? %>
     <div class="errors">
       <h2><%= pluralize(change_record.errors.count, "error") %>
         prohibited this change from being saved</h2>
@@ -10,52 +10,54 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field p-4">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="field p-4">
+    <%= f.label :description, class: "mr-2" %>
+    <%= f.text_field :description, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :business_justification %>
-    <%= f.text_field :business_justification %>
+  <div class="field p-4">
+    <%= f.label :business_justification, class: "mr-2" %>
+    <%= f.text_field :business_justification, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :implementation_plan %>
-    <%= f.text_field :implementation_plan %>
+  <div class="field p-4">
+    <%= f.label :implementation_plan, class: "mr-2" %>
+    <%= f.text_field :implementation_plan, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :risks %>
-    <%= f.text_field :risks %>
+  <div class="field p-4">
+    <%= f.label :risks, class: "mr-2" %>
+    <%= f.text_field :risks, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :test_plan %>
-    <%= f.text_field :test_plan %>
+  <div class="field p-4">
+    <%= f.label :test_plan, class: "mr-2" %>
+    <%= f.text_field :test_plan, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :rollback_plan %>
-    <%= f.text_field :rollback_plan %>
+  <div class="field p-4">
+    <%= f.label :rollback_plan, class: "mr-2" %>
+    <%= f.text_field :rollback_plan, class: "input input-sm p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :risk_id %>
+  <div class="field p-4">
+    <%= f.label :risk_id, class: "mr-2" %>
     <%= f.collection_select :risk_id,
                         Risk.all,
                         :id,
                         :level,
-                        prompt: "Select a risk level" %>
+                        prompt: "Select a risk level",
+                        class: "select select-sm ml-3 p-4" %>
   </div>
-  <div class="field">
-    <%= f.label :change_type_id %>
+  <div class="field p-4">
+    <%= f.label :change_type_id, class: "mr-2" %>
     <%= f.collection_select :change_type_id,
                         ChangeType.all,
                         :id,
                         :change_type,
-                        prompt: "Select a change type" %>
+                        prompt: "Select a change type",
+                        class: "select select-sm ml-3 p-4" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" p-4>
+    <%= f.submit class: "btn btn-primary ml-4" %>
   </div>
 <% end %>

@@ -31,7 +31,7 @@ class ChangeRecordsController < ApplicationController
 
     if @change_record.update(change_params)
       flash[:notice] = "Change updated sucessfully"
-      redirect_to change_record_path_path(@change_record)
+      redirect_to change_record_path(@change_record)
     else
       render :edit, status: :unprocessable_entity
     end
