@@ -1,6 +1,11 @@
 <div class="pl-4 p-4">
   <h1>Changes</h1>
 
+  <%= button_to "New Change Record",
+  new_change_record_path,
+  method: :get,
+  class: "btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl p-4" %>
+
   <ul class="list p-4">
     <% @change_records.each do |change_record| %>
       <li class="list-item"><%= link_to change_record.name, change_record_path(change_record.id) %></li>
