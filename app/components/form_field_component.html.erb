@@ -1,0 +1,14 @@
+<!-- app/components/form_field_component.html.erb -->
+<div class="form-control mb-4">
+  <% unless @type == :checkbox %>
+    <%= @form.label @field, @label, class: "label font-semibold" %>
+  <% end %>
+
+  <%= input_html %>
+
+  <% if errors.present? %>
+    <p class="text-error text-sm mt-1">
+      <%= errors.join(", ") %>
+    </p>
+  <% end %>
+</div>

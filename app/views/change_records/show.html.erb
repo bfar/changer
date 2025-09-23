@@ -22,19 +22,23 @@
       <%= @change_record.change_type.change_type %></li>
   </ul>
 
-  <%= button_to "Back",
-  change_records_path,
-  method: :get,
-  class: "btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" %>
+  <%= render ButtonComponent.new(
+    text: "Back",
+    url: change_records_path,
+    method: :get,
+    variant: :primary,
+  ) %>
 
-  <%= button_to "Edit",
-  edit_change_record_path(@change_record),
-  method: :get,
-  class: "btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" %>
-
-  <%= button_to "Delete",
-  change_records_path(@change_record),
-  method: :delete,
-  class: "btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" %>
-
+  <%= render ButtonComponent.new(
+    text: "Edit",
+    url: edit_change_record_path(@change_record),
+    method: :get,
+    variant: :secondary,
+  ) %>
+  <%= render ButtonComponent.new(
+    text: "Delete",
+    url: change_records_path(@change_record),
+    method: :delete,
+    variant: :warning,
+  ) %>
 </div>
