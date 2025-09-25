@@ -13,17 +13,20 @@
   <%= render FormFieldComponent.new(form: f, label: "Name: ", field: :name) %>
   <%= render FormFieldComponent.new(
     form: f,
+    type: :textarea,
     label: "Description: ",
     field: :description,
   ) %>
   <%= render FormFieldComponent.new(
     form: f,
+    type: :textarea,
     label: "Business Justification: ",
     field: :business_justification,
   ) %>
 
   <%= render FormFieldComponent.new(
     form: f,
+    type: :textarea,
     label: "Implementation Plan: ",
     field: :implementation_plan,
   ) %>

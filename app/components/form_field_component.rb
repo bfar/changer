@@ -28,18 +28,18 @@ class FormFieldComponent < ViewComponent::Base
     when :textarea
       @form.text_area(@field, class: "#{input_base} h-24")
     when :select
-if @options.is_a?(ActiveRecord::Relation) || @options.is_a?(Array) && @options.first.is_a?(ActiveRecord::Base)
-      # Expect collection of models
-      @form.select(
+      if @options.is_a?(ActiveRecord::Relation) || @options.is_a?(Array) && @options.first.is_a?(ActiveRecord::Base)
+        # Expect collection of models
+        @form.select(
         @field,
         options_from_collection_for_select(@options, :id, :name, @form.object[@field]),
         {},
         class: "select #{border_class} w-full #{@classes}"
       )
-else
-      # Expect array of pairs like [["Admin", "admin"], ["User", "user"]]
-      @form.select(@field, @options, {}, class: "select #{border_class} w-full #{@classes}")
-end
+      else
+        # Expect array of pairs like [["Admin", "admin"], ["User", "user"]]
+        @form.select(@field, @options, {}, class: "select #{border_class} w-full #{@classes}")
+      end
     when :checkbox
       checkbox_wrapper
     else
@@ -50,7 +50,8 @@ end
   private
 
   def input_base
-    "input input-bordered w-full #{@classes}"
+    # "input input-bordered w-full #{@classes}"
+    "input w-full #{@classes}"
   end
 
   def border_class
