@@ -10,47 +10,62 @@
       </ul>
     </div>
   <% end %>
-  <%= render FormFieldComponent.new(form: f, label: "Name: ", field: :name) %>
-  <%= render FormFieldComponent.new(
-    form: f,
-    type: :textarea,
-    label: "Description: ",
-    field: :description,
-  ) %>
-  <%= render FormFieldComponent.new(
-    form: f,
-    type: :textarea,
-    label: "Business Justification: ",
-    field: :business_justification,
-  ) %>
+  <%= render FormFieldsetComponent.new(legend: "Change information") do %>
+    <%= render FormFieldComponent.new(form: f, label: "Name: ", field: :name) %>
+    <%= render FormFieldComponent.new(
+      form: f,
+      type: :select,
+      options: ChangeType.all,
+      label: "Change Type: ",
+      field: :change_type_id,
+    ) %>
 
+    <%= render FormFieldComponent.new(
+      form: f,
+      type: :textarea,
+      label: "Description: ",
+      field: :description,
+    ) %>
+    <%= render FormFieldComponent.new(
+      form: f,
+      type: :textarea,
+      label: "Business Justification: ",
+      field: :business_justification,
+    ) %>
+  <% end %>
+  <%= render FormFieldsetComponent.new(legend: "Implementation information") do %>
+
+    <%= render FormFieldComponent.new(
+      form: f,
+      type: :textarea,
+      label: "Implementation Plan: ",
+      field: :implementation_plan,
+    ) %>
+    <%= render FormFieldComponent.new(
+      form: f,
+      type: :textarea,
+      label: "Test Plan: ",
+      field: :test_plan,
+    ) %>
+    <%= render FormFieldComponent.new(
+      form: f,
+      type: :textarea,
+      label: "Rollback Plan: ",
+      field: :rollback_plan,
+    ) %>
+  <% end %>
   <%= render FormFieldComponent.new(
     form: f,
     type: :textarea,
-    label: "Implementation Plan: ",
-    field: :implementation_plan,
+    label: "Risks: ",
+    field: :risks,
   ) %>
-  <%= render FormFieldComponent.new(form: f, label: "Risks: ", field: :risks) %>
-  <%= render FormFieldComponent.new(form: f, label: "Test Plan: ", field: :test_plan) %>
-  <%= render FormFieldComponent.new(
-    form: f,
-    label: "Rollback Plan: ",
-    field: :rollback_plan,
-  ) %>
-
   <%= render FormFieldComponent.new(
     form: f,
     type: :select,
     options: Risk.all,
-    label: "Risk Level: ",
+    label: "Overall Risk Level: ",
     field: :risk_id,
-  ) %>
-  <%= render FormFieldComponent.new(
-    form: f,
-    type: :select,
-    options: ChangeType.all,
-    label: "Change Type: ",
-    field: :change_type_id,
   ) %>
   <div class="actions" mt-4>
     <%= f.submit class: "btn btn-primary ml-4" %>

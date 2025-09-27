@@ -1,0 +1,15 @@
+<%# app/components/form_fieldset_component.html.erb %>
+<fieldset
+  class="
+    fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4
+    <%= @classes %>
+  "
+>
+  <% if @legend.present? %>
+    <legend class="fieldset-legend font-semibold mb-2"><%= @legend %></legend>
+  <% end %>
+
+  <div class="space-y-4">
+    <%= content %>
+  </div>
+</fieldset>
